@@ -1,5 +1,5 @@
 import sys
-# Imprime platform
+# Imprime plataforma
 print (sys.platform)
 # Entrada de dados
 x = input('Seu nome: ')
