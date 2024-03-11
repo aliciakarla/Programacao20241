@@ -1,5 +1,8 @@
-x = input('Digite seu nome completo e sua data de nascimento (separados por ): ')
+x = input('Digite seu nome completo: ')
+y = input('Digite sua data de nascimento: ')
 Nome = x.split()
+Data = y
+
 
 print(f'Nome: {Nome[0]} {Nome[-1]}')
-print(f'Data: ')
+print(f'Data: {Data}') 
