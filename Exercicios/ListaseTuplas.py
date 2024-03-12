@@ -9,7 +9,7 @@ while True:
     else:
         print('Valor duplicado! Não vou adicionar...')
     opcao = str(input('Quer continuar ? [S/N] '))
-    if opcao in 'Nn':
+    if opcao in 'Não':
         break
 print('-='*30)
 Valores.sort()
