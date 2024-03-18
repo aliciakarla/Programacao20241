@@ -1,5 +1,3 @@
-print('Tintas para pintar o quarto')
-
 altura = float(input('Altura da parede: '))
 largura = float(input('Qual a largura da parede: '))
 area = altura * largura
