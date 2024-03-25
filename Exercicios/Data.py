@@ -3,4 +3,4 @@ Meses = ('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'A
 
 Data = input('Informe a data de nascimento (dd/mm/aaaa): ')
 
-print (F'')
+print (F'{Data[0]} de {Meses} de {Data[2]}')
