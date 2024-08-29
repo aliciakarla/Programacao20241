@@ -1,0 +1,19 @@
+from datetime import datetime
+
+def dias_para_proximo_aniversario(DataDeNascimento):
+    DataDeNascimento = datetime.strptime(DataDeNascimento, '%d/%m/%Y')
+    Ano = datetime.now().year
+    
+    ProximoAniversario = datetime(year=Ano, month=DataDeNascimento.month, day=DataDeNascimento.day)
+    
+    if ProximoAniversario < datetime.now():
+        ProximoAniversario = ProximoAniversario.replace(year=Ano + 1)
+
+    DiasRestantes = (ProximoAniversario - datetime.now()).days
+    
+    return DiasRestantes
+
+DataDeNascimento = input("Digite sua data de nascimento (dd/mm/aaaa): ")
+DiasRestantes = dias_para_proximo_aniversario(DataDeNascimento)
+
+print(f"Faltam {DiasRestantes} dias para o seu próximo aniversário.")

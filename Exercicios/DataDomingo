@@ -1,0 +1,23 @@
+from datetime import datetime, timedelta
+
+def encontrar_dias_da_semana(mes, ano, dia_da_semana):
+    data_inicial = datetime(ano, mes, 1)
+    
+    dias_ate_o_dia_da_semana = (dia_da_semana - data_inicial.weekday() + 7) % 7
+    data_atual = data_inicial + timedelta(days=dias_ate_o_dia_da_semana)
+    
+    datas = []
+    while data_atual.month == mes:
+        datas.append(data_atual.strftime('%d-%m-%Y'))
+        data_atual += timedelta(weeks=1)
+    
+    return datas
+
+mes = 4
+ano = 2020
+dia_da_semana = 6 
+
+datas_dos_domingos = encontrar_dias_da_semana(mes, ano, dia_da_semana)
+print(f"Datas dos domingos de abril de {ano}:")
+for data in datas_dos_domingos:
+    print(data)
