@@ -1,16 +1,19 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 def main():
-    Site = 'https://diatinf.ifrn.edu.br/docentes/'
-    Response = requests.get(Site)
+    Link = 'https://diatinf.ifrn.edu.br/docentes/'
+    Response = requests.get(Link)
     Response.raise_for_status()
 
-    Soup = BeautifulSoup(Response.text, 'html.parser')
+    print(Response)
+    #print(Response.text)
+
+    Site = BeautifulSoup(Response.text, 'html.parser')
+    print(Site.prettify())
     Professores = []
 
-    for Docente in Soup.select('.docente'):
+    for Docente in Site.select('.docente'):
         Nome = Docente.select_one('.nome') 
         Matricula = Docente.select_one('.matricula')
         Email = Docente.select_one('.email') 
@@ -25,7 +28,7 @@ def main():
 
 
     for Professor in Professores:
-        print(f"Nome: {Professor['nome']}, Email: {Professor['email']}")
+       print(f"Nome: {Professor['nome']}, Email: {Professor['email']}")
 
 if __name__ == '__main__':
     main()
