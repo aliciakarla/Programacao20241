@@ -1,0 +1,40 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+def main():
+    Link = 'https://diatinf.ifrn.edu.br/docentes/'
+    Response = requests.get(Link)
+    Response.raise_for_status()
+ # print(Response)
+    #print(Response.text)
+
+
+    Site = BeautifulSoup(Response.text, 'html.parser')
+    #print(Site.prettify())
+    Professores = []
+
+
+    for i in Site.select("h2", class_="elementor-heading-litle"):
+       
+        if i.text.isdigit():
+            print(f"Matricula: {i.text}")
+     
+        elif '@' in i.text:
+            print('Email: ', i.text.strip())
+        else:
+            if len(i.text.strip()) == 0:
+    
+            pass
+            elif 'diretoria' in i.text.strip().lower():
+                pass
+            print('Nome: ', i.text.strip())
+
+
+  
+    for Professor in Professores:
+       print(f"Nome: {Professor['nome']}, Email: {Professor['email']}")
+
+
+if __name__ == '__main__':
+    main()
