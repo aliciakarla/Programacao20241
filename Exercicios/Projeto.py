@@ -10,7 +10,7 @@ def main():
     #print(Response.text)
 
     Site = BeautifulSoup(Response.text, 'html.parser')
-    print(Site.prettify())
+    #print(Site.prettify())
     Professores = []
 
     for Docente in Site.select('.docente'):
