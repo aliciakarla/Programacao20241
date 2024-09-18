@@ -1,15 +1,13 @@
-ListaDeNomes = [] 
+nomes = []
 
 while True:
-    Nomes = input("Digite um nome: ")
-
-    Continuar = input('Continuar? [S/N]: ').strip().upper()
-    while Continuar not in ('S', 'N'):
-        Continuar = input('Continuar? [S/N]: ').strip().upper()
-    if Continuar == 'N':
-        print('Fim...')
+    nome = input("Digite um nome (ou 'FIM' para terminar): ")
+    if nome.upper() == "FIM":
         break
-    import random
+    nomes.append(nome)
 
+nomes_filtrados = [nome for nome in nomes if len(nome) > 6]
 
-
+print("Nomes com mais de 6 letras:")
+for nome in nomes_filtrados:
+    print(nome)
