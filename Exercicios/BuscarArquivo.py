@@ -11,7 +11,7 @@ def BuscarArquivo(NomeDoArquivo, Pasta):
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: python buscar_arquivo.py <nome_arquivo> <pasta>")
+        print("Uso: python buscar_arquivo.py requirements.txt meusdocumemtos")
         sys.exit(1)
     NomeDoArquivo = sys.argv[1]
     Pasta = sys.argv[2]
